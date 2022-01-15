@@ -84,8 +84,8 @@ def save_grab_vertices(cfg, logger=None, **params):
 
             sbj_mesh = os.path.join(grab_path, '..', seq_data.body.vtemp)
             
-            print("About to try loading sbj_vtemp")
-            embed()
+            # print("About to try loading sbj_vtemp")
+            # embed()
             sbj_vtemp = np.array(Mesh(filename=sbj_mesh).vertices)
 
             sbj_m = smplx.create( model_path=cfg.model_path,
