@@ -100,6 +100,7 @@ def save_grab_vertices(cfg, logger=None, **params):
             verts_sbj = to_cpu(output_sbj.vertices)
             joints_sbj = to_cpu(output_sbj.joints) # to get the body joints (it includes some additional landmarks, check smplx repo.
             np.savez_compressed(outfname, verts_body=verts_sbj)
+            np.savez_compressed(outfname.replace('_verts_body.npz', '_body_joints.npz'), body_joints=joints_sbj)
 
         if cfg.save_lhand_verts:
             lh_mesh = os.path.join(grab_path, '..', seq_data.lhand.vtemp)
@@ -118,6 +119,7 @@ def save_grab_vertices(cfg, logger=None, **params):
             verts_lh = to_cpu(lh_output.vertices)
             joints_lh = to_cpu(lh_output.joints) # to get the hand joints
             np.savez_compressed(outfname.replace('_verts_body.npz', '_verts_lhand.npz'), verts_body=verts_lh)
+            np.savez_compressed(outfname.replace('_verts_body.npz', '_lhand_joints.npz'), lhand_joints=joints_lh)
 
         if cfg.save_rhand_verts:
             rh_mesh = os.path.join(grab_path, '..', seq_data.rhand.vtemp)
@@ -136,7 +138,7 @@ def save_grab_vertices(cfg, logger=None, **params):
             verts_rh = to_cpu(rh_output.vertices)
             joints_rh = to_cpu(rh_output.joints) # to get the hand joints
             np.savez_compressed(outfname.replace('_verts_body.npz', '_verts_rhand.npz'), verts_body=verts_rh)
-
+            np.savez_compressed(outfname.replace('_verts_body.npz', '_rhand_joints.npz'), rhand_joints=joints_rh)
 
         if cfg.save_object_verts:
 
