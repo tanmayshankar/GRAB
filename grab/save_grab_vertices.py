@@ -151,9 +151,6 @@ def save_grab_vertices(cfg, logger=None, **params):
             verts_obj = to_cpu(obj_m(**obj_parms).vertices)
             np.savez_compressed(outfname.replace('_verts_body.npz', '_verts_object.npz'), verts_object=verts_obj)
 
-        print("Embedding after processing.")
-        embed()
-
         logger('Processing finished')
 
 
