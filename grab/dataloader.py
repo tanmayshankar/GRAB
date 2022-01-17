@@ -18,6 +18,7 @@ import glob
 import numpy as np
 import torch
 from torch.utils import data
+from IPython import embed
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
@@ -82,6 +83,9 @@ if __name__=='__main__':
     data_path = 'PATH_TO_PROCESSED_DATA/grab_processed'
     ds = LoadData(data_path, ds_name='val')
 
+    print("Embedding after creating dataset.")
+    embed()
+    
     bs = 256
     dataloader = data.DataLoader(ds, batch_size=bs, shuffle=True, num_workers=0, drop_last=True)
 
