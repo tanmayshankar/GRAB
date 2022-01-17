@@ -122,6 +122,7 @@ class GRABDataSet(object):
             # for sequence in tqdm(self.split_seqs[split]):
             for iteration_number, sequence in enumerate(tqdm(self.split_seqs[split])):
                 
+                print("Iteration Number #: ", iteration_number)
                 seq_data = parse_npz(sequence)
 
                 obj_name = seq_data.obj_name
