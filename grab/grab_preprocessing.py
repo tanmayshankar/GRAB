@@ -104,11 +104,12 @@ class GRABDataSet(object):
         self.obj_info = {}
         self.sbj_info = {}
 
-        print("Embed before actually starting preprocessing.")
-        embed()
+        # print("Embed before actually starting preprocessing.")
+        # embed()
         
-        
-        for split in self.split_seqs.keys():
+        # Creating dummy list, to skip test and val splits. 
+        for split in ['train']:
+        # for split in self.split_seqs.keys():
 
             self.logger('Processing data for %s split.' % (split))
 
