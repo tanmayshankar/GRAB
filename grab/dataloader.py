@@ -80,11 +80,13 @@ class LoadData(data.Dataset):
 
 if __name__=='__main__':
 
+    
+    print("Embedding before creating dataset.")
+    embed()
+    
     data_path = 'PATH_TO_PROCESSED_DATA/grab_processed'
     ds = LoadData(data_path, ds_name='val')
 
-    print("Embedding after creating dataset.")
-    embed()
     
     bs = 256
     dataloader = data.DataLoader(ds, batch_size=bs, shuffle=True, num_workers=0, drop_last=True)
