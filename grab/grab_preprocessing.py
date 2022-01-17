@@ -35,6 +35,8 @@ from tools.utils import to_cpu
 from tools.utils import append2dict
 from tools.utils import np2torch
 
+from IPython import embed
+
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 INTENTS = ['lift', 'pass', 'offhand', 'use', 'all']
 
@@ -102,6 +104,10 @@ class GRABDataSet(object):
         self.obj_info = {}
         self.sbj_info = {}
 
+        print("Embed before actually starting preprocessing.")
+        embed()
+        
+        
         for split in self.split_seqs.keys():
 
             self.logger('Processing data for %s split.' % (split))
