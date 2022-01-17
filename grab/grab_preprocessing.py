@@ -376,8 +376,8 @@ if __name__ == '__main__':
         'intent':'all', # from 'all', 'use' , 'pass', 'lift' , 'offhand'
         'only_contact':True, # if True, returns only frames with contact
         'save_body_verts': True, # if True, will compute and save the body vertices
-        'save_lhand_verts': True, # if True, will compute and save the body vertices
-        'save_rhand_verts': True, # if True, will compute and save the body vertices
+        'save_lhand_verts': False, # if True, will compute and save the body vertices
+        'save_rhand_verts': False, # if True, will compute and save the body vertices
         'save_object_verts': False,
 
         'save_contact': True, # if True, will add the contact info to the saved data
