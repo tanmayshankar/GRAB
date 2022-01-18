@@ -95,10 +95,14 @@ def save_grab_vertices(cfg, logger=None, **params):
                                   v_template = sbj_vtemp,
                                   batch_size=T)
 
-            sbj_parms = params2torch(seq_data.body.params)
+            sbj_parms = params2torch(seq_data.body.params)                        
             output_sbj = sbj_m(**sbj_parms)
             verts_sbj = to_cpu(output_sbj.vertices)
             joints_sbj = to_cpu(output_sbj.joints) # to get the body joints (it includes some additional landmarks, check smplx repo.
+            
+            print("Embedding before saving joints.")
+            embed()
+            
             np.savez_compressed(outfname, verts_body=verts_sbj)
             np.savez_compressed(outfname.replace('_verts_body.npz', '_body_joints.npz'), body_joints=joints_sbj)
 
