@@ -20,6 +20,7 @@ sys.path.insert(0,'..')
 import numpy as np
 import torch
 import os, glob
+os.environ['PYOPENGL_PLATFORM'] = "osmesa"
 import smplx
 import argparse
 from tqdm import tqdm
