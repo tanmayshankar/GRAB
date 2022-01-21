@@ -103,7 +103,7 @@ def vis_sequence(cfg,sequence, mv):
 
         seq_render_path = makepath(sequence.replace('.npz','').replace(cfg.grab_path, cfg.render_path))
 
-        skip_frame = 4
+        skip_frame = 20
         for frame in range(0,T, skip_frame):
             o_mesh = Mesh(vertices=verts_obj[frame], faces=obj_mesh.faces, vc=colors['yellow'])
             o_mesh.set_vertex_colors(vc=colors['red'], vertex_ids=seq_data['contact']['object'][frame] > 0)
