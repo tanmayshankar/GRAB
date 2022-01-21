@@ -41,7 +41,7 @@ def render_sequences(cfg, seqs=None):
 
     grab_path = cfg.grab_path
 
-    mv = MeshViewer(width=1600, height=1200,offscreen=True)
+    mv = MeshViewer(width=600, height=600,offscreen=True)
 
 
     # set the camera pose
@@ -103,7 +103,7 @@ def vis_sequence(cfg,sequence, mv):
 
         seq_render_path = makepath(sequence.replace('.npz','').replace(cfg.grab_path, cfg.render_path))
 
-        skip_frame = 20
+        skip_frame = 100
         for frame in range(0,T, skip_frame):
             o_mesh = Mesh(vertices=verts_obj[frame], faces=obj_mesh.faces, vc=colors['yellow'])
             o_mesh.set_vertex_colors(vc=colors['red'], vertex_ids=seq_data['contact']['object'][frame] > 0)
