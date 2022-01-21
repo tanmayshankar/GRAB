@@ -150,8 +150,9 @@ if __name__ == '__main__':
     # render_sequences(cfg)
     
     # Set a particular sequence, call vis_sequence on that file. 
-    seq = ["s1/wineglass_toast_1.npz"]
-    render_sequences(cfg,seqs=seq)
+    # seq = ["s1/wineglass_toast_1.npz"]
+    # render_sequences(cfg,seqs=seq)
+    render_sequences(cfg)
     
 
 
