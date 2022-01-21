@@ -33,10 +33,9 @@ from tools.cfg_parser import Config
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 
-def render_sequences(cfg):
+def render_sequences(cfg, seqs=None):
 
     grab_path = cfg.grab_path
-    all_seqs = glob.glob(grab_path + '/*/*eat*.npz')
 
     mv = MeshViewer(width=1600, height=1200,offscreen=True)
 
@@ -45,9 +44,16 @@ def render_sequences(cfg):
     camera_pose = np.eye(4)
     camera_pose[:3, :3] = euler([80, -15, 0], 'xzx')
     camera_pose[:3, 3] = np.array([-.5, -1.4, 1.5])
+
     mv.update_camera_pose(camera_pose)
 
-    choice = np.random.choice(len(all_seqs), 10, replace=False)
+    if seqs is None:
+        all_seqs = glob.glob(grab_path + '/*/*eat*.npz')
+        choice = np.random.choice(len(all_seqs), 10, replace=False)
+    else:
+        all_seqs = seqs
+        choice = np.arange(0,len(seqs),1)
+    
     for i in tqdm(choice):
         vis_sequence(cfg,all_seqs[i], mv)
     mv.close_viewer()
@@ -137,5 +143,12 @@ if __name__ == '__main__':
     }
 
     cfg = Config(**cfg)
-    render_sequences(cfg)
+    # render_sequences(cfg)
+    
+    # Set a particular sequence, call vis_sequence on that file. 
+    seq = "s1/wineglass_toast_1.npz"
+    render_sequences(cfg,seq)
+    
+
+
 
