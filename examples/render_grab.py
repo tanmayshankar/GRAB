@@ -59,7 +59,7 @@ def render_sequences(cfg, seqs=None):
         choice = np.arange(0,len(seqs),1)
     
     for i in tqdm(choice):
-        vis_sequence(cfg,all_seqs[i], mv)
+        vis_sequence(cfg,os.path.join(grab_path,all_seqs[i]), mv)
     mv.close_viewer()
 
 
