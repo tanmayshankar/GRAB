@@ -12,8 +12,11 @@
 # Contact: ps-license@tuebingen.mpg.de
 #
 import sys
-sys.path.append('.')
-sys.path.append('..')
+# sys.path.append('.')
+# sys.path.append('..')
+
+sys.path.insert(0,'.')
+sys.path.insert(0,'..')
 import numpy as np
 import torch
 import os, glob
