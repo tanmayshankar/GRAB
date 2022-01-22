@@ -119,7 +119,7 @@ def vis_sequence(cfg,sequence, mv):
             
             img = mv.save_snapshot(seq_render_path+'/%04d.png'%frame, return_image=True)
             # Now append image to list, so that we can save gif. 
-        	image_list.append(img)
+            image_list.append(img)
             
         # Now save the gif using imageio.mimsave.
         imageio.mimsave(os.path.join(seq_render_path,"Traj.gif"), image_list)
