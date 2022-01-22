@@ -24,7 +24,7 @@ os.environ['PYOPENGL_PLATFORM'] = "osmesa"
 import smplx
 import argparse
 from tqdm import tqdm
-
+import imagio
 from tools.objectmodel import ObjectModel
 from tools.meshviewer import Mesh, MeshViewer, points2sphere, colors
 from tools.utils import parse_npz
