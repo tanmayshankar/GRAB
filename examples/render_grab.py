@@ -104,6 +104,7 @@ def vis_sequence(cfg,sequence, mv):
         seq_render_path = makepath(sequence.replace('.npz','').replace(cfg.grab_path, cfg.render_path))
 
         skip_frame = 20
+        image_list = []
         for frame in range(0,T, skip_frame):
             o_mesh = Mesh(vertices=verts_obj[frame], faces=obj_mesh.faces, vc=colors['yellow'])
             o_mesh.set_vertex_colors(vc=colors['red'], vertex_ids=seq_data['contact']['object'][frame] > 0)
@@ -115,8 +116,13 @@ def vis_sequence(cfg,sequence, mv):
             t_mesh = Mesh(vertices=verts_table[frame], faces=table_mesh.faces, vc=colors['white'])
 
             mv.set_static_meshes([o_mesh, s_mesh, s_mesh_wf, t_mesh])
-            mv.save_snapshot(seq_render_path+'/%04d.png'%frame)
-
+            
+            img = mv.save_snapshot(seq_render_path+'/%04d.png'%frame, return_image=True)
+            # Now append image to list, so that we can save gif. 
+            image_list.append(img)
+            
+		# Now save the gif using imageio.mimsave.
+		imageio.mimsave(os.path.join(seq_render_path,"Traj.gif"), image_list)       
 
 if __name__ == '__main__':
 
