@@ -235,14 +235,16 @@ class MeshViewer(object):
     def set_dynamic_meshes(self, meshes =[]):
         self.set_meshes(meshes=meshes, set_type='dynamic')
 
-    def save_snapshot(self, save_path):
+    def save_snapshot(self, save_path, return_image=False):
         if not self.offscreen:
             print('We do not support rendering in Interactive mode!')
             return
         color, depth = self.viewer.render(self.scene)
         img = Image.fromarray(color)
         img.save(save_path)
-
+        
+        if return_image:
+            return img
 
 def points2sphere(points, radius = .001, vc = [0., 0., 1.], count = [5,5]):
 
