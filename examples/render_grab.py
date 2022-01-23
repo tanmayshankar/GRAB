@@ -157,8 +157,13 @@ if __name__ == '__main__':
     
     # Set a particular sequence, call vis_sequence on that file. 
     # seq = ["s1/wineglass_toast_1.npz"]
-    # render_sequences(cfg,seqs=seq)
-    render_sequences(cfg)
+    
+    # Visualize results from GRAB_BaxterR_004 model. 
+    seqs = ["s1/airplane_fly_1.npz",
+            "s10/cubelarge_lift.npz"]  
+    
+    render_sequences(cfg,seqs=seqs)
+#     render_sequences(cfg)
     
 
 
