@@ -132,12 +132,13 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='GRAB-render')
 
-    parser.add_argument('--grab-path', required=True, type=str,
+    parser.add_argument('--grab-path', required=True, type=str, default='/data/tanmayshankar/Datasets/GRAB/grab/',
                         help='The path to the downloaded grab data')
-    parser.add_argument('--render-path', required=True, type=str,
+    parser.add_argument('--render-path', required=True, type=str, default='/data/tanmayshankar/Datasets/Rendered_GRAB/',
                         help='The path to the folder to save the renderings')
-    parser.add_argument('--model-path', required=True, type=str,
+    parser.add_argument('--model-path', required=True, type=str, default='smplx-models/models/'
                         help='The path to the folder containing smplx models')
+    parser.add_argument('--viz_sequence', type=str, default=None, help='The flename to visualize.')
 
     args = parser.parse_args()
 
@@ -162,12 +163,12 @@ if __name__ == '__main__':
     # seq = ["s1/wineglass_toast_1.npz"]
     
     # Visualize results from GRAB_BaxterR_004 model. 
-    seqs = ["s1/airplane_fly_1.npz",
-            "s10/cubelarge_lift.npz"]  
+    # seqs = ["s1/airplane_fly_1.npz", "s10/cubelarge_lift.npz"]  
     
-    render_sequences(cfg,seqs=seqs)
-#     render_sequences(cfg)
+    # render_sequences(cfg,seqs=seqs)
+    # render_sequences(cfg)
     
+    render_sequences(cfg, seqs=args.viz_sequence)
 
 
 
