@@ -46,8 +46,11 @@ def render_sequences(cfg, seqs=None):
 
     # set the camera pose
     camera_pose = np.eye(4)
+    # camera_pose[:3, :3] = euler([80, -15, 0], 'xzx')
+    # camera_pose[:3, 3] = np.array([-.5, -1.4, 1.5])
+    
     camera_pose[:3, :3] = euler([80, -15, 0], 'xzx')
-    camera_pose[:3, 3] = np.array([-.5, -1.4, 1.5])
+    camera_pose[:3, 3] = np.array([-.2, -1.6, 1.5])
 
     mv.update_camera_pose(camera_pose)
 
