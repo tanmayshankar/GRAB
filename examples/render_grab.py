@@ -168,7 +168,7 @@ if __name__ == '__main__':
     # render_sequences(cfg,seqs=seqs)
     # render_sequences(cfg)
     
-    render_sequences(cfg, seqs=args.viz_sequence)
+    render_sequences(cfg, seqs=[args.viz_sequence])
 
 
 
