@@ -110,10 +110,12 @@ def vis_sequence(cfg,sequence, mv):
             o_mesh.set_vertex_colors(vc=colors['red'], vertex_ids=seq_data['contact']['object'][frame] > 0)
 
             # s_mesh = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['pink'], smooth=True)
-            s_mesh = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['blue'], smooth=True)
+            # s_mesh = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['blue'], smooth=True)
+            s_mesh = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['lightblue'], smooth=True)
             s_mesh.set_vertex_colors(vc=colors['red'], vertex_ids=seq_data['contact']['body'][frame] > 0)
 
-            s_mesh_wf = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['grey'], wireframe=True)
+            # s_mesh_wf = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['grey'], wireframe=True)
+            s_mesh_wf = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['lightblue'], wireframe=True)
             t_mesh = Mesh(vertices=verts_table[frame], faces=table_mesh.faces, vc=colors['white'])
 
             mv.set_static_meshes([o_mesh, s_mesh, s_mesh_wf, t_mesh])
