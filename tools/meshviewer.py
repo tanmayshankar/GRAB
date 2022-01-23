@@ -114,7 +114,7 @@ class MeshViewer(object):
     def __init__(self,
                  width=1200,
                  height=800,
-                 bg_color = [0.0, 0.0, 0.0, 1.0],
+                 bg_color = [1.0, 1.0, 1.0, 1.0],
                  offscreen = False,
                  registered_keys=None):
         super(MeshViewer, self).__init__()
