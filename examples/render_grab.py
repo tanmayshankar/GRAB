@@ -136,7 +136,7 @@ if __name__ == '__main__':
                         help='The path to the downloaded grab data')
     parser.add_argument('--render-path', required=True, type=str, default='/data/tanmayshankar/Datasets/Rendered_GRAB/',
                         help='The path to the folder to save the renderings')
-    parser.add_argument('--model-path', required=True, type=str, default='smplx-models/models/'
+    parser.add_argument('--model-path', required=True, type=str, default='smplx-models/models/',
                         help='The path to the folder containing smplx models')
     parser.add_argument('--viz_sequence', type=str, default=None, help='The flename to visualize.')
 
