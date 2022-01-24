@@ -171,7 +171,9 @@ if __name__ == '__main__':
     # render_sequences(cfg,seqs=seqs)
     # render_sequences(cfg)
     
-    render_sequences(cfg, seqs=[args.viz_sequence])
+    seqs = np.load("/data/tanmayshankar/Datasets/GRAB_Joints/ShortFileList.npy",allow_pickle=True)
+    render_sequences(cfg, seqs=seqs)
+    # render_sequences(cfg, seqs=[args.viz_sequence])
 
 
 
