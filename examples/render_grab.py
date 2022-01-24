@@ -186,6 +186,6 @@ if __name__ == '__main__':
                 's8/stamp_stamp_1.npz',
                 's10/mouse_use_1.npz']
     
-    render_sequences(cfg, seqs=[sequences])
+    render_sequences(cfg, seqs=sequences)
 
 
