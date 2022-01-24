@@ -121,7 +121,9 @@ def vis_sequence(cfg,sequence, mv):
             s_mesh_wf = Mesh(vertices=verts_sbj[frame], faces=sbj_m.faces, vc=colors['lightblue'], wireframe=True)
             t_mesh = Mesh(vertices=verts_table[frame], faces=table_mesh.faces, vc=colors['white'])
 
-            mv.set_static_meshes([o_mesh, s_mesh, s_mesh_wf, t_mesh])
+            # mv.set_static_meshes([o_mesh, s_mesh, s_mesh_wf, t_mesh])
+            # Visualize without table or object. 
+            mv.set_static_meshes([s_mesh, s_mesh_wf])
             
             img = mv.save_snapshot(seq_render_path+'/%04d.png'%frame, return_image=True)
             # Now append image to list, so that we can save gif. 
@@ -137,7 +139,7 @@ if __name__ == '__main__':
 
     parser.add_argument('--grab-path', type=str, default='/data/tanmayshankar/Datasets/GRAB/grab/',
                         help='The path to the downloaded grab data')
-    parser.add_argument('--render-path', type=str, default='/data/tanmayshankar/Datasets/Rendered_GRAB/',
+    parser.add_argument('--render-path', type=str, default='/data/tanmayshankar/Datasets/Rendered_GRAB_Plain/',
                         help='The path to the folder to save the renderings')
     parser.add_argument('--model-path', type=str, default='smplx-models/models/',
                         help='The path to the folder containing smplx models')
@@ -171,8 +173,11 @@ if __name__ == '__main__':
     # render_sequences(cfg,seqs=seqs)
     # render_sequences(cfg)
     
-    seqs = np.load("/data/tanmayshankar/Datasets/GRAB_Joints/ShortFileList.npy",allow_pickle=True)
-    render_sequences(cfg, seqs=seqs)
+    # Trying to visualize all trajectories.. 
+    # seqs = np.load("/data/tanmayshankar/Datasets/GRAB_Joints/ShortFileList.npy",allow_pickle=True)
+    # render_sequences(cfg, seqs=seqs)
+    
+    #     
     # render_sequences(cfg, seqs=[args.viz_sequence])
 
 
