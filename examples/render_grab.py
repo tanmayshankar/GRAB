@@ -181,10 +181,11 @@ if __name__ == '__main__':
     # render_sequences(cfg, seqs=[args.viz_sequence])
 
     # Now set set of sequences to visualize. 
-    sequences = ['s1/alarmclock_see_1.npz',
-                's1/train_play_1.npz',
-                's8/stamp_stamp_1.npz',
-                's10/mouse_use_1.npz']
+    # sequences = ['s1/alarmclock_see_1.npz',
+    #            's1/train_play_1.npz',
+    #            's8/stamp_stamp_1.npz',
+    #            's10/mouse_use_1.npz']
+    sequences = ['s10/cup_pour_1.npz']
     
     render_sequences(cfg, seqs=sequences)
 
